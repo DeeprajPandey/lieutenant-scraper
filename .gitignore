@@ -1,3 +1,8 @@
+### Repo Specific ###
+config.yaml
+logs/
+data/
+
 ### MacOS ###
 # General
 .DS_Store
