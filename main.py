@@ -1,5 +1,12 @@
-import yaml
 import pprint
+import os
+
+import yaml
+
+from logger import get_logger
+from scraper.content import scrape_content
+
+logger = get_logger(__name__)
 
 def load_config():
     with open("config.yaml", "r") as conf_file:
@@ -7,9 +14,11 @@ def load_config():
 
 def main():
     config = load_config()
+    logger.info("Starting scraper")
+    logger.debug("Testing debug")
+    logger.debug(f"config: {pprint.pformat(config['scraper']['content'])}")
     
-    print(f"\nconfig: {pprint.pformat(config['scraper']['content'])}")
-    # success: can access nested contents and yaml is correctly formatted
+    scrape_content()
 
 if __name__ == "__main__":
     main()
